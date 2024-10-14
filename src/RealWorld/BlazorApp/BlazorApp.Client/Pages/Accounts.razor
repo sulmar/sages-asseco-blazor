@@ -1,0 +1,41 @@
+﻿@page "/accounts"
+@using Domain.Models
+
+<h3>Accounts</h3>
+
+<ul>
+    @foreach(var account in accounts)
+    {
+        <li>@account.Number @account.Balance @account.Status</li>
+    }
+    
+</ul>
+
+@code {
+
+
+    private IEnumerable<Account> accounts;
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+
+        accounts = new List<Account>
+        {
+            new Account { Id = 1, Number = "11110000", Balance = 100, Status = AccountStatus.Opened },
+            new Account { Id = 2, Number = "22220000", Balance = 100, Status = AccountStatus.Opened },
+            new Account { Id = 3, Number = "33330000", Balance = 100, Status = AccountStatus.Closed },
+            new Account { Id = 4, Number = "44440000", Balance = 100, Status = AccountStatus.Opened },
+            new Account { Id = 5, Number = "55550000", Balance = 100, Status = AccountStatus.Locked },
+        };
+
+     
+    }
+
+
+
+
+
+}

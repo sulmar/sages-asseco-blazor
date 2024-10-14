@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorApp", "BlazorApp", "{7E318494-FB9F-44E4-890C-2562105DD011}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\BlazorApp\BlazorApp.csproj", "{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Client", "BlazorApp\BlazorApp.Client\BlazorApp.Client.csproj", "{0B3A3800-2709-4E33-AAA8-82D0190A31FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3A3800-2709-4E33-AAA8-82D0190A31FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3A3800-2709-4E33-AAA8-82D0190A31FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3A3800-2709-4E33-AAA8-82D0190A31FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3A3800-2709-4E33-AAA8-82D0190A31FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5} = {7E318494-FB9F-44E4-890C-2562105DD011}
+		{0B3A3800-2709-4E33-AAA8-82D0190A31FC} = {7E318494-FB9F-44E4-890C-2562105DD011}
+	EndGlobalSection
+EndGlobal
