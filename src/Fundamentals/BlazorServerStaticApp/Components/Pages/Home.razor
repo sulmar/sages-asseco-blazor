@@ -1,0 +1,25 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, Asseco!!!</h1>
+
+Welcome to your new app.
+
+
+<button class="btn btn-primary" @onclick="OnButtonClick">Click me!</button>
+
+<p>@message</p>
+
+@code {
+    private string message;
+
+    private void OnButtonClick()
+    {
+        message = "Clicked!";
+        Console.WriteLine(message);
+
+        // StateHasChanged();
+    }
+}
