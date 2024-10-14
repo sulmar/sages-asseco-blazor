@@ -1,15 +1,22 @@
 ﻿@page "/accounts"
+@rendermode InteractiveWebAssembly
+
 @using Domain.Models
 
 <h3>Accounts</h3>
 
-<ul>
-    @foreach(var account in accounts)
-    {
-        <li>@account.Number @account.Balance @account.Status</li>
-    }
-    
-</ul>
+@if (accounts is not null)
+{
+    <ul>
+        @foreach (var account in accounts)
+        {
+            <li>@account.Number @account.Balance @account.Status</li>
+        }
+
+    </ul>
+}
+
+<p>@message</p>
 
 @code {
 
@@ -17,25 +24,34 @@
     private IEnumerable<Account> accounts;
 
 
+    private string message = "Loading Web Assembly...";
 
-    protected override async Task OnInitializedAsync()
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await Task.Delay(2000);
-
-        accounts = new List<Account>
+        if (firstRender)
         {
-            new Account { Id = 1, Number = "11110000", Balance = 100, Status = AccountStatus.Opened },
-            new Account { Id = 2, Number = "22220000", Balance = 100, Status = AccountStatus.Opened },
-            new Account { Id = 3, Number = "33330000", Balance = 100, Status = AccountStatus.Closed },
-            new Account { Id = 4, Number = "44440000", Balance = 100, Status = AccountStatus.Opened },
-            new Account { Id = 5, Number = "55550000", Balance = 100, Status = AccountStatus.Locked },
-        };
+            message = "Loading accounts...";
+            
+            StateHasChanged();
 
-     
+            await Task.Delay(5_000);
+
+
+            accounts = new List<Account>
+            {
+                new Account { Id = 1, Number = "11110000", Balance = 100, Status = AccountStatus.Opened },
+                new Account { Id = 2, Number = "22220000", Balance = 100, Status = AccountStatus.Opened },
+                new Account { Id = 3, Number = "33330000", Balance = 100, Status = AccountStatus.Closed },
+                new Account { Id = 4, Number = "44440000", Balance = 100, Status = AccountStatus.Opened },
+                new Account { Id = 5, Number = "66660000", Balance = 100, Status = AccountStatus.Locked },
+            };
+
+            message = "Loaded accounts.";
+
+            StateHasChanged();
+        }
     }
-
-
-
-
-
 }
+
+
