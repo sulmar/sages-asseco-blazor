@@ -1,0 +1,34 @@
+﻿@using Domain.Models
+
+@if (Accounts is not null)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Balance</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+
+            @foreach (var account in Accounts)
+            {
+                <tr>
+                    <td>@account.Number</td>
+                    <td>@account.Balance</td>
+                    <td>@account.Status</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}
+
+@code {
+
+    [Parameter]
+    public IEnumerable<Account> Accounts { get; set; }
+}
