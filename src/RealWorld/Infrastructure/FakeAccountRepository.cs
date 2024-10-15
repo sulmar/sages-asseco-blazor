@@ -7,17 +7,8 @@ public class FakeAccountRepository : IAccountRepository
 {
     private IDictionary<int, Account> _accounts;
 
-    public FakeAccountRepository()
+    public FakeAccountRepository(IEnumerable<Account> accounts)
     {
-        var accounts = new List<Account>
-            {
-                new Account { Id = 1, Number = "11110000", Balance = 100},
-                new Account { Id = 2, Number = "22220000", Balance = 100 },
-                new Account { Id = 3, Number = "33330000", Balance = 100, Status = AccountStatus.Closed },
-                new Account { Id = 4, Number = "44440000", Balance = 100 },
-                new Account { Id = 5, Number = "66660000", Balance = 100, Status = AccountStatus.Locked },
-            };
-
         _accounts = accounts.ToDictionary(p => p.Id);
     }
     public void Add(Account account)
