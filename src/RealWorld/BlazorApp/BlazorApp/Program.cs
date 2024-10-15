@@ -1,5 +1,6 @@
 using BlazorApp.Components;
 using Domain.Abstractions;
+using Domain.Models;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,18 @@ builder.Services.AddRazorComponents()
 
 
 builder.Services.AddScoped<IAccountRepository, FakeAccountRepository>();
+
+builder.Services.AddScoped<IEnumerable<Account>>(_ => new List<Account>
+    {
+        new Account { Id = 1, Number = "11110000", Balance = 100},
+        new Account { Id = 2, Number = "22220000", Balance = 100 },
+        new Account { Id = 3, Number = "33330000", Balance = 100, Status = AccountStatus.Closed },
+        new Account { Id = 4, Number = "44440000", Balance = 100 },
+        new Account { Id = 5, Number = "66660000", Balance = 100, Status = AccountStatus.Locked },
+    }
+);
+
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
@@ -33,5 +46,9 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorApp.Client._Imports).Assembly);
+
+app.MapGet("/api/accounts", (IAccountRepository repository) => repository.GetAll());
+
+app.MapGet("/api/accounts/{id:int}", (IAccountRepository repository, int id) => repository.Get(id));
 
 app.Run();

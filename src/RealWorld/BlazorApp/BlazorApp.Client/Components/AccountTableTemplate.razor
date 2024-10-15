@@ -27,6 +27,6 @@
     [Parameter]
     public RenderFragment? HeaderTemplate { get; set; }
 
-    [Parameter]
-    public RenderFragment<Account> RowTemplate { get; set; }
+    [Parameter, EditorRequired]
+    public required RenderFragment<Account> RowTemplate { get; set; }
 }

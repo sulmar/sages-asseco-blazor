@@ -1,7 +1,7 @@
 ﻿@page "/accounts"
 @using Domain.Abstractions
 @rendermode InteractiveWebAssembly
-@inject IAccountRepository Repository
+@inject HttpClient Client
 
 <h3>Accounts</h3>
 
@@ -45,9 +45,7 @@
 
             StateHasChanged();
 
-
-
-            accounts = Repository.GetAll();
+            accounts = await Client.GetFromJsonAsync<IEnumerable<Account>>("api/accounts");
 
             message = "Loaded accounts.";
 
