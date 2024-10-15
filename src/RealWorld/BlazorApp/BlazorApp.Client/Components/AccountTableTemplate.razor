@@ -25,7 +25,7 @@
     public required IEnumerable<Account> Accounts { get; set; }
 
     [Parameter]
-    public RenderFragment HeaderTemplate { get; set; }
+    public RenderFragment? HeaderTemplate { get; set; }
 
     [Parameter]
     public RenderFragment<Account> RowTemplate { get; set; }

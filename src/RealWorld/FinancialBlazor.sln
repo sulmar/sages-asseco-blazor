@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Client", "BlazorA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{7BEB4572-936C-4FC4-A6DE-1EAA1D6BC631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{074BF8FD-E79D-4EEE-AC40-985C3EFE5B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEB4572-936C-4FC4-A6DE-1EAA1D6BC631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEB4572-936C-4FC4-A6DE-1EAA1D6BC631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEB4572-936C-4FC4-A6DE-1EAA1D6BC631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEB4572-936C-4FC4-A6DE-1EAA1D6BC631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2E531B46-2ACD-4669-B59C-0FBCAFBC1DF5} = {7E318494-FB9F-44E4-890C-2562105DD011}
 		{0B3A3800-2709-4E33-AAA8-82D0190A31FC} = {7E318494-FB9F-44E4-890C-2562105DD011}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6291A413-7AB4-4819-86C7-DD7D25923BCE}
 	EndGlobalSection
 EndGlobal

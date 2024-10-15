@@ -1,11 +1,16 @@
 using BlazorApp.Client.Pages;
 using BlazorApp.Components;
+using Domain.Abstractions;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+
+builder.Services.AddScoped<IAccountRepository, FakeAccountRepository>();
 
 var app = builder.Build();
 
