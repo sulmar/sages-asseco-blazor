@@ -6,7 +6,7 @@ namespace Infrastructure;
 public class FakeEntityRepository<TEntity> : IEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
-    private readonly IDictionary<int, TEntity> _entities;
+    protected readonly IDictionary<int, TEntity> _entities;
 
     public FakeEntityRepository(IEnumerable<TEntity> entities) => _entities = entities.ToDictionary(p => p.Id);
     public void Add(TEntity entity)
