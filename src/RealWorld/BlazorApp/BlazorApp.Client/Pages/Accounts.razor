@@ -6,6 +6,17 @@
 
 <h3>Accounts</h3>
 
+<div>
+    <label for="filter"><h3>Search:</h3></label>
+    
+    @* <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> *@
+    <!-- <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> -->
+
+    <button type="button" @onclick="Search" class="btn btn-primary">Search</button>
+
+    <p>Characters count: @searchText.Length</p>
+</div>
+
 <AccountTableTemplate Accounts="@accounts">
     <HeaderTemplate>
         <tr>
@@ -28,6 +39,12 @@
 <p>@message</p>
 
 @code {
+    private string searchText = "Type text";
+
+    private async Task Search()
+    {
+        
+    }
 
     // [Inject]
     // public IAccountRepository repository { get; set; }
