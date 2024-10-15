@@ -12,7 +12,6 @@ public class Account : BaseEntity
     }
 }
 
-
 public enum AccountStatus
 {
     Opened,

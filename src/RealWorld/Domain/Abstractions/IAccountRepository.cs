@@ -2,9 +2,6 @@
 
 namespace Domain.Abstractions;
 
-public interface IAccountRepository
+public interface IAccountRepository : IEntityRepository<Account>
 {
-    IEnumerable<Account> GetAll();
-    Account Get(int id);
-    void Add(Account account);
 }

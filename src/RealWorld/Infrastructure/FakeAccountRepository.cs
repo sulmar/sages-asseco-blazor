@@ -3,21 +3,14 @@ using Domain.Models;
 
 namespace Infrastructure;
 
-public class FakeAccountRepository : IAccountRepository
+public class FakeAccountRepository : FakeEntityRepository<Account>, IAccountRepository
 {
-    private readonly IDictionary<int, Account> _accounts;
-
-    public FakeAccountRepository(IEnumerable<Account> accounts) => _accounts = accounts.ToDictionary(p => p.Id);
-    public void Add(Account account)
+    public FakeAccountRepository(IEnumerable<Account> entities) : base(entities)
     {
-        var id = _accounts.Max(p=>p.Key);
-
-        account.Id = ++id;
-
-        _accounts.Add(account.Id, account);
     }
 
-    public Account Get(int id) => _accounts[id];
-
-    public IEnumerable<Account> GetAll() => _accounts.Values;
+    public Account Get(string number)
+    {
+        return _entities.Values.SingleOrDefault(e => e.Number == number)!;
+    }
 }
