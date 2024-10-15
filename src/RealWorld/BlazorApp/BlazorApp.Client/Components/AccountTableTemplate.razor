@@ -4,22 +4,14 @@
 {
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Number</th>
-                <th>Balance</th>
-                <th>Status</th>
-            </tr>
+           @HeaderTemplate
         </thead>
         
         <tbody>
 
             @foreach (var account in Accounts)
             {
-                <tr>
-                    <td>@account.Number</td>
-                    <td>@account.Balance</td>
-                    <td>@account.Status</td>
-                </tr>
+                @RowTemplate(account)
             }
 
         </tbody>
@@ -29,6 +21,12 @@
 
 @code {
 
+    [Parameter, EditorRequired]
+    public required IEnumerable<Account> Accounts { get; set; }
+
     [Parameter]
-    public IEnumerable<Account> Accounts { get; set; }
+    public RenderFragment HeaderTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<Account> RowTemplate { get; set; }
 }
