@@ -7,13 +7,29 @@
 
 @if (accounts is not null)
 {
-    <ul>
-        @foreach (var account in accounts)
-        {
-            <li>@account.Number @account.Balance @account.Status</li>
-        }
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Balance</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        
+        <tbody>
 
-    </ul>
+            @foreach (var account in accounts)
+            {
+                <tr>
+                    <td>@account.Number</td>
+                    <td>@account.Balance</td>
+                    <td>@account.Status</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
 }
 
 <p>@message</p>
@@ -35,7 +51,6 @@
             
             StateHasChanged();
 
-            await Task.Delay(5_000);
 
 
             accounts = new List<Account>
