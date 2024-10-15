@@ -1,3 +1,4 @@
+using BlazorApp.Client.Services;
 using BlazorApp.Components;
 using Domain.Abstractions;
 using Domain.Models;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IEnumerable<Account>>(_ => new List<Account>
 );
 
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<AccountService>();
 
 var app = builder.Build();
 

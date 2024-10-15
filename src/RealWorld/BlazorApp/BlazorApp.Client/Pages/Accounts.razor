@@ -1,7 +1,8 @@
 ﻿@page "/accounts"
+@using BlazorApp.Client.Services
 @using Domain.Abstractions
-@rendermode InteractiveWebAssembly
-@inject HttpClient Client
+@rendermode InteractiveServer
+@inject AccountService Api 
 
 <h3>Accounts</h3>
 
@@ -45,7 +46,7 @@
 
             StateHasChanged();
 
-            accounts = await Client.GetFromJsonAsync<IEnumerable<Account>>("api/accounts");
+            accounts = await Api.GetAllAsync();
 
             message = "Loaded accounts.";
 

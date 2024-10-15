@@ -1,3 +1,4 @@
+using BlazorApp.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 internal class Program
@@ -8,6 +9,7 @@ internal class Program
 
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+        builder.Services.AddScoped<AccountService>();
 
         await builder.Build().RunAsync();
     }

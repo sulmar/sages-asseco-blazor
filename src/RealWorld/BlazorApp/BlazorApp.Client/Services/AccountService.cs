@@ -1,11 +1,19 @@
 ﻿using Domain.Models;
+using System.Net.Http.Json;
 
 namespace BlazorApp.Client.Services;
 
 public class AccountService
 {
-    public IEnumerable<Account> GetAll()
+    private readonly HttpClient _client;
+
+    public AccountService(HttpClient client)
     {
-        throw new NotImplementedException();
+        _client = client;
+    }
+
+    public Task<IEnumerable<Account>> GetAllAsync()
+    {
+        return _client.GetFromJsonAsync<IEnumerable<Account>>("api/accounts")!;
     }
 }
