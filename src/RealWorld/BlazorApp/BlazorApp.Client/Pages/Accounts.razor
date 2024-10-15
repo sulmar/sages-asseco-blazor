@@ -12,11 +12,11 @@
         </tr>
     </HeaderTemplate>
 
-    <RowTemplate>
+    <RowTemplate Context="account">
         <tr>
-            <td>@context.Number</td>
-            <td>@context.Balance</td>
-            <td>@context.Status</td>
+            <td>@account.Number</td>
+            <td>@account.Balance</td>
+            <td>@account.Status</td>
         </tr>
     </RowTemplate>
 
