@@ -1,8 +1,9 @@
-﻿<div>
+﻿<div @ref="divPanel">
     <label for="filter"><h3>Search:</h3></label>
 
     <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput"
-           placeholder="Type your search text" />
+           placeholder="Type your search text"
+           @ref="filterInputElementReference" />
 
     @* <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> *@
     <!-- <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> -->
@@ -13,6 +14,9 @@
 </div>
 
 @code {
+    private ElementReference filterInputElementReference;
+    private ElementReference divPanel;
+
     private string searchText = string.Empty;
 
     private bool CannotSearch => searchText.Length == 0;
@@ -25,5 +29,12 @@
         await OnSearch.InvokeAsync(searchText);
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await filterInputElementReference.FocusAsync();
+        }
+    }
 
 }
