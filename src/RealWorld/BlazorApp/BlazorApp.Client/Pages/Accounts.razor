@@ -6,16 +6,25 @@
 
 <h3>Accounts</h3>
 
+@if (!IsLoading)
+{
+
 <div>
     <label for="filter"><h3>Search:</h3></label>
     
+     <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput"
+     placeholder="Type your search text"
+     />
+
     @* <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> *@
     <!-- <input type="text" id="filter" @bind-value="searchText" @bind-value:event="oninput" /> -->
 
-    <button type="button" @onclick="Search" class="btn btn-primary">Search</button>
+    <button type="button" @onclick="Search" class="btn btn-primary" disabled="@CannotSearch">Search</button>
 
     <p>Characters count: @searchText.Length</p>
 </div>
+
+}
 
 <AccountTableTemplate Accounts="@accounts">
     <HeaderTemplate>
@@ -39,11 +48,15 @@
 <p>@message</p>
 
 @code {
-    private string searchText = "Type text";
+    private string searchText = string.Empty;
+
+    private bool CannotSearch => searchText.Length == 0;
+
+    private bool IsLoading = true;
 
     private async Task Search()
     {
-        
+
     }
 
     // [Inject]
@@ -54,7 +67,6 @@
 
     private string message = "Loading Web Assembly...";
 
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -63,7 +75,11 @@
 
             StateHasChanged();
 
+            IsLoading = true;
+
             accounts = await Api.GetAllAsync();
+
+            IsLoading = false;
 
             message = "Loaded accounts.";
 
