@@ -1,0 +1,19 @@
+﻿<CascadingValue Value="40">
+    <CascadingValue Value="@MyTitle" Name="a">
+        <CascadingValue Value="@MyDescription" Name="b">
+            @ChildContent
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+
+@code {
+
+    private string MyTitle = "Salary";
+
+    private string MyDescription = "Lorem ipsum";
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

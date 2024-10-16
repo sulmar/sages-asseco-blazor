@@ -1,6 +1,25 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
-    <Found Context="routeData">
-        <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
-        <FocusOnNavigate RouteData="routeData" Selector="h1" />
-    </Found>
-</Router>
+﻿@using Domain.Models
+@using BlazorApp.Client.Components
+
+<CascadingValue Value="@MyAccount">
+
+    <CascadingValues>
+        <Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
+            <Found Context="routeData">
+                <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
+                <FocusOnNavigate RouteData="routeData" Selector="h1" />
+            </Found>
+        </Router>
+
+    </CascadingValues>
+
+
+</CascadingValue>
+
+
+
+@code {
+
+
+    private Account MyAccount => new Account { Number = "99990000", Balance = 100m };
+}

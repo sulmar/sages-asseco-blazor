@@ -1,10 +1,24 @@
 ﻿<h3>Child Component</h3>
 
-<p>@Value</p>
+<h4>@Title</h4>
+
+<p>@Description</p>
+
+<p>@Progress</p> 
+
+<p>@Account.Balance</p>
 
 @code {
 
-    [Parameter]
-    public int Value { get; set; }
+    [CascadingParameter]
+    public int Progress { get; set; }
 
+    [CascadingParameter(Name = "a")]
+    public string Title { get; set; }
+
+    [CascadingParameter(Name = "b")]
+    public string Description { get; set; }
+
+    [CascadingParameter]
+    public Account Account { get; set; }
 }
